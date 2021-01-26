@@ -102,10 +102,7 @@ apt-get install -y tzdata
 ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
-if  !isCommandExist git; then
-    echo '--> Install git'
-    installAPTPackage git
-fi
+apt-get install -y git
 
 ###################################################################################
 #############################  END START INSTALLATION
@@ -288,3 +285,23 @@ service apache2 reload
 #############################  END PHPMYADMIN INSTALLATION
 ###################################################################################
 
+###################################################################################
+############################# REPORT END INSTALLATION
+###################################################################################
+
+echo -e "\n\n ###########################################  \n"
+echo -e "\n\n ################## REPORT END INSTALLATION  \n"
+echo -e "\n\n ###########################################  \n"
+echo -e "\n\n You have succefully install :  \n"
+echo -e "\n\n --> apache :  \n"
+apachectl -v
+
+echo -e "\n\n --> mysql :  \n"
+mysql -v
+
+echo -e "\n\n --> php :  \n"
+php -v
+
+###################################################################################
+#############################  END REPORT END INSTALLATION
+###################################################################################
